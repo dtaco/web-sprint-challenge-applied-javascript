@@ -18,6 +18,8 @@ const Header = (title, date, temp) => {
   header.appendChild(titleBox);
   header.appendChild(tempBox);
 
+  return header;
+
 
   // TASK 1
   // ---------------------
