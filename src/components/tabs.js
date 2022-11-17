@@ -1,4 +1,21 @@
 const Tabs = (topics) => {
+
+  const topicsBox = document.createElement('div');
+  
+  for(let i = 0; topics.length; i++){
+
+    const newTab = document.createElement('div');
+
+    newTab.classList.add('tab');
+
+    newTab.textContent = topics[i];
+
+    topicsBox.appendChild(newTab);
+    
+  }
+
+  return topicsBox;
+
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -16,6 +33,10 @@ const Tabs = (topics) => {
 }
 
 const tabsAppender = (selector) => {
+ 
+  const point = document.querySelector(selector);
+
+  axios
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
