@@ -11,7 +11,7 @@ const Tabs = (topics) => {
     newTab.textContent = topics[i];
 
     topicsBox.appendChild(newTab);
-    
+
   }
 
   return topicsBox;
@@ -36,7 +36,9 @@ const tabsAppender = (selector) => {
  
   const point = document.querySelector(selector);
 
-  axios
+  axios.get(`http://localhost:5001/api/topics`).then(info => {
+    point.appendChild(Tabs(info.data.topics))
+  });
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
