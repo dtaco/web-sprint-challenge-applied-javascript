@@ -1,4 +1,31 @@
+import axios from "axios";
+
 const Card = (article) => {
+
+  const cardBox = document.createElement('div');
+  const headlineEl = document.createElement('div');
+  const authorEl = document.createElement('div');
+  const imageEl = document.createElement('div');
+  const authorPhotoEl = document.createElement('img');
+  const authorName = document.createElement('p');
+  
+  cardBox.classList.add('card');
+  headlineEl.classList.add('headline');
+  authorEl.classList.add('author');
+  imageEl.classList.add('img-container');
+
+  headlineEl.textContent = article.headline;
+  authorPhotoEl.src = article.authorPhoto;
+  authorName.textContent = article.authorName;
+
+  cardBox.appendChild(headlineEl);
+  cardBox.appendChild(authorEl);
+  authorEl.appendChild(imageEl);
+  imageEl.appendChild(authorPhotoEl);
+  authorEl.appendChild(authorName);
+
+  return cardBox;
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -28,6 +55,28 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+  const point = document.querySelector(selector);
+
+  axios.get(`http://localhost:5001/api/articles`).then(info => {
+
+    const arr = [];
+    arr.push(
+      info.data.articles.javascript,
+      info.data.articles.bootstrap,
+      info.data.articles.technology,
+      info.data.articles.jquery,
+      info.data.articles.node
+      )
+
+      function apply (array){
+        for (let i = 0; i<array.length; i++){
+          point.appendChild(Card(arr[i]))
+        }
+      }
+
+      arr.forEach(n => apply(n))
+  })
 }
 
 export { Card, cardAppender }
