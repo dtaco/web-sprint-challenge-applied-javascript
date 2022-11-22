@@ -11,7 +11,7 @@ const Header = (title, date, temp) => {
   tempBox.classList.add('temp');
 
   dateBox.textContent = date;
-  titleBox.textContent =title;
+  titleBox.textContent = title;
   tempBox.textContent = temp;
 
   header.appendChild(dateBox);
