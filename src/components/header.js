@@ -37,11 +37,11 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   
-  const placer = document.querySelector(selector);
+  const target = document.querySelector(selector);
 
-  placer.appendChild(Header('Florida', 'Nov 17th, 2022', '76 F'));
+  target.appendChild(Header('Florida', 'Nov 17th, 2022', '76 F'));
 
-  return placer;
+  return target;
   
   // TASK 2
   // ---------------------

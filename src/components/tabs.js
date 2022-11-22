@@ -1,8 +1,11 @@
+import axios from "axios";
+
 const Tabs = (topics) => {
 
-  const topicsBox = document.createElement('div');
-  
-  for(let i = 0; topics.length; i++){
+  const topicsEl = document.createElement('div');
+  topicsEl.classList.add('topics');
+
+  for(let i = 0; i < topics.length; i++){
 
     const newTab = document.createElement('div');
 
@@ -10,11 +13,11 @@ const Tabs = (topics) => {
 
     newTab.textContent = topics[i];
 
-    topicsBox.appendChild(newTab);
+    topicsEl.appendChild(newTab);
 
   }
 
-  return topicsBox;
+  return topicsEl;
 
   // TASK 3
   // ---------------------
