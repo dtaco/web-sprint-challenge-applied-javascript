@@ -2,29 +2,29 @@ import axios from "axios";
 
 const Card = (article) => {
 
-  const cardBox = document.createElement('div');
+  const cardEl = document.createElement('div');
   const headlineEl = document.createElement('div');
   const authorEl = document.createElement('div');
-  const imageEl = document.createElement('div');
+  const imageContainer = document.createElement('div');
   const authorPhotoEl = document.createElement('img');
-  const authorName = document.createElement('p');
+  const authorName = document.createElement('span');
   
-  cardBox.classList.add('card');
+  cardEl.classList.add('card');
   headlineEl.classList.add('headline');
   authorEl.classList.add('author');
-  imageEl.classList.add('img-container');
+  imageContainer.classList.add('img-container');
 
   headlineEl.textContent = article.headline;
   authorPhotoEl.src = article.authorPhoto;
   authorName.textContent = article.authorName;
 
-  cardBox.appendChild(headlineEl);
-  cardBox.appendChild(authorEl);
-  authorEl.appendChild(imageEl);
-  imageEl.appendChild(authorPhotoEl);
+  cardEl.appendChild(headlineEl);
+  cardEl.appendChild(authorEl);
+  authorEl.appendChild(imageContainer);
+  imageContainer.appendChild(authorPhotoEl);
   authorEl.appendChild(authorName);
 
-  return cardBox;
+  return cardEl;
 
   // TASK 5
   // ---------------------
@@ -69,13 +69,13 @@ const cardAppender = (selector) => {
       info.data.articles.node
       )
 
-      function apply (array){
-        for (let i = 0; i<array.length; i++){
+      function sender (arr){
+        for (let i = 0; i<arr.length; i++){
           point.appendChild(Card(arr[i]))
         }
       }
 
-      arr.forEach(n => apply(n))
+      arr.forEach(n => sender(n))
   })
 }
 
